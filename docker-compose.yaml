@@ -6,7 +6,9 @@ services:
       dockerfile: Dockerfile
       context: ./service1/
     ports:
-      - 8199:8199
+      - "8199:8199"
+    depends_on:
+      - service2
 
   service2:
       image: exercise1/service2

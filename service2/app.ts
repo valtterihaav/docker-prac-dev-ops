@@ -11,10 +11,10 @@ const app: Express = express();
  * @returns Info about the container as a dictionary
  */
 function getContainerInfo() {
-  const ipAddress = execSync('hostname -I').toString().trim();
-  const processes = execSync('ps -ax').toString();
+  const ipAddress = execSync('hostname -i').toString().trim();
+  const processes = execSync('ps').toString();
   const diskSpace = execSync('df -h /').toString();
-  const uptime = execSync('uptime -p').toString();
+  const uptime = execSync('uptime').toString();
 
   return {
     ipAddress,
