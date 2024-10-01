@@ -5,10 +5,13 @@ FROM node:22-alpine
 WORKDIR /service-2
 
 # copy the package.json file
-COPY package.json /app/package.json
+COPY package*.json ./
 
 # install the dependencies
 RUN npm install
+
+# Copy the rest of the application code
+COPY . .
 
 # Expose the port
 EXPOSE 8200

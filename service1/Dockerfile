@@ -14,6 +14,9 @@ COPY requirements.txt requirements.txt
 # install the dependencies into venv
 RUN pip install -r requirements.txt
 
+# Copy the rest of the application code
+COPY . .
+
 # Expose the port
 EXPOSE 8199
 
