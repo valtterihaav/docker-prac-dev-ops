@@ -6,10 +6,10 @@ WORKDIR /service1
 
 # create virtual environment and activate it
 RUN python -m venv .venv
-RUN .venv/bin/activate
 
 # copy the package.json file
 COPY requirements.txt requirements.txt
+RUN ./.venv/bin/pip install -r requirements.txt
 
 # install the dependencies into venv
 RUN pip install -r requirements.txt
