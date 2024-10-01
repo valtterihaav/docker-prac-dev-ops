@@ -2,7 +2,7 @@
 FROM node:22-alpine
 
 # set the wokring directory
-WORKDIR /service-2
+WORKDIR /service2
 
 # copy the package.json file
 COPY package*.json ./

@@ -1,7 +1,7 @@
 services:
 
   service1:
-    image: exercise1/service2
+    image: exercise1/service1
     build:
       dockerfile: Dockerfile
       context: ./service1/
