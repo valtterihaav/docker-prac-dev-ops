@@ -1,4 +1,4 @@
-# start from basic node image
+# start from basic node image, alpine is the less heavy node image
 FROM node:22-alpine
 
 # set the wokring directory
