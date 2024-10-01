@@ -1,7 +1,21 @@
-FROM python:3.9
+# start from python image
+FROM python:3.12
 
-WORKDIR /app
+# set the working directory
+WORKDIR /service1
 
-COPY package.json /app/package.json
+# create virtual environment and activate it
+RUN python -m venv .venv
+RUN .venv/bin/activate
 
-RUN npm install
+# copy the package.json file
+COPY requirements.txt requirements.txt
+
+# install the dependencies into venv
+RUN pip install -r requirements.txt
+
+# Expose the port
+EXPOSE 8199
+
+# start the FastAPI, on port 8080
+CMD ["uvicorn", "app:app", "--port", "8199"]
