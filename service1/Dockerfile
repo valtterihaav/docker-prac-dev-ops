@@ -4,14 +4,10 @@ FROM python:3.12
 # set the working directory
 WORKDIR /service1
 
-# create virtual environment and activate it
-RUN python -m venv .venv
-
 # copy the package.json file
 COPY requirements.txt requirements.txt
-RUN ./.venv/bin/pip install -r requirements.txt
 
-# install the dependencies into venv
+# install the dependencies
 RUN pip install -r requirements.txt
 
 # Copy the rest of the application code

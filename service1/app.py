@@ -17,9 +17,9 @@ async def read_root():
     Root endpoint.
     """
     ip_address = subprocess.getoutput("hostname -i")
-    processes = subprocess.getoutput("ps")
-    disk_space = subprocess.getoutput("df -h /")
-    uptime = subprocess.getoutput("uptime")
+    processes = subprocess.getoutput("ps -ax").splitlines()
+    disk_space = subprocess.getoutput("df -h /").splitlines()
+    uptime = subprocess.getoutput("uptime -p")
 
     # query the second api, use the service2 hostname
     # as per docker compose file

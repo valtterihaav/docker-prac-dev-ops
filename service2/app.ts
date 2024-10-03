@@ -6,22 +6,34 @@ import { execSync } from 'node:child_process'
 const app: Express = express();
 
 /**
+ * Interface for the container information
+ */
+interface ContainerInfo {
+  ipAddress: string;
+  processes: string[];
+  diskSpac: string[];
+  uptime: string;
+}
+
+/**
  * Get information about the container
  * 
  * @returns Info about the container as a dictionary
  */
 function getContainerInfo() {
   const ipAddress = execSync('hostname -i').toString().trim();
-  const processes = execSync('ps').toString();
-  const diskSpace = execSync('df -h /').toString();
-  const uptime = execSync('uptime').toString();
+  const processes = execSync('ps -ax').toString().split('\n');
+  const diskSpace = execSync('df -h /').toString().split('\n');
+  const uptime = execSync('uptime -p').toString();
 
-  return {
-    ipAddress,
-    processes,
-    diskSpace,
-    uptime
+  // combine and return the information
+  const info: ContainerInfo = {
+    ipAddress: ipAddress,
+    processes: processes,
+    diskSpac: diskSpace,
+    uptime: uptime
   };
+  return info;
 }
 
 /**

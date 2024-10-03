@@ -1,5 +1,5 @@
 # start from basic node image, alpine is the less heavy node image
-FROM node:22-alpine
+FROM node:18
 
 # set the wokring directory
 WORKDIR /service2
