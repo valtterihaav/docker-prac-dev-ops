@@ -1,0 +1,4 @@
+Container share the OS information with the host machine. On top of this docker containers are built.
+It also shares the host machine's storage capabilities. Meaning that how much there is free disk space etc. is
+determined by the host machine hardware specifications. Also, Docker uses the machine's hardware to run its containers
+meaning that on a low end machine it might take substantially longer to run Docker stuff.

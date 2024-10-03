@@ -1,0 +1,9 @@
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                    NAMES
+4d4727249d78   exercise1/service1   "uvicorn app:app --h…"   3 minutes ago   Up 3 minutes   0.0.0.0:8199->8199/tcp   exercise1-service1-1
+86102be67437   exercise1/service2   "docker-entrypoint.s…"   3 minutes ago   Up 3 minutes   8200/tcp                 exercise1-service2-1
+
+NETWORK ID     NAME                DRIVER    SCOPE
+57c57ef437d5   bridge              bridge    local
+e3cb735a6f28   exercise1_default   bridge    local
+0ba74f3a84a4   host                host      local
+1409d1883f2c   none                null      local
